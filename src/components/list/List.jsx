@@ -4,7 +4,7 @@ import "./style.css";
 const List = () => {
  
    return (
-   <div>123</div>
+   <div>리스트</div>
    );
 };
 
