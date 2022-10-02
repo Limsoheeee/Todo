@@ -1,10 +1,11 @@
 import React from "react";
+import Todo from "../todo/Todo";
 import "./style.css";
 
-const List = () => {
+const List = () => {  //todo박스나열
  
    return (
-   <div>리스트</div>
+   <Todo /> 
    );
 };
 

@@ -1,10 +1,13 @@
 import React from "react";
 import "./style.css";
 
-const Todo = () => {
-
+const Todo = (props) => {    //워킹박스
+ const {children}=props
    return (
-    <div>Todo</div>
+    <div>
+      <h3>Working</h3>
+    <div>{children}</div>
+    </div>
   );
 };
 
