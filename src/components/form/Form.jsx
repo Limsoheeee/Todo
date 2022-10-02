@@ -17,10 +17,13 @@ const Form = () => {
     setContent(inputContent)
    };
 
-    const onClickAddList = () => {
+    const onClickAddList = () => {  //버튼추가하면 폼밸류생성
       if(title&&content){
-        setValue=([...formValue,{id:formValue.length+1,title,content,isDone:false}])
+        setValue([...formValue,{id:formValue.length+1,title,content,isDone:false}])
       }
+      // else if(title=""||content=""){
+      //   alert('제목과 내용을 입력해주세요.')
+      // }
    }
 
   return (
