@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./style.css";
 
 const Form = () => {
-  const [formValue, setValue] = useState([]); //폼밸류 배열처리 온클릭시 처리
+  const mergy ={
+    id:0,
+    title:"",
+    content:"",
+    isDone: false,
+  }
+  const [formValue, setValue] = useState([mergy]); //폼밸류 배열처리 온클릭시 처리
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -28,14 +34,19 @@ const Form = () => {
       ]);
       setTitle("");   //제목과 내용을 추가 누른 후 값을 초기화
       setContent("");
+
     }
     else{
       alert('제목과 내용을 모두 입력해주세요.')
     }
   };
 console.log(formValue)
+
+
+  const [list, setlist] = useState(false); 
+
   return (
-    <div>
+   <>
     <form className="add-form" onSubmit={onSubmitHandler}>
       <div className="input-group">
         <label className="form-label">제목</label>
@@ -59,16 +70,32 @@ console.log(formValue)
         </button>
       </div>
       </form>
-      <br></br>
+      <div>
+        {
+         list == true ? <List/>:null 
+        }
+     </div>
+    </>
 
-      <div className="todo-container">  
-      {/* todo박스 생성, 폼의 타이틀과 콘텐트를 보여준다. */}
-      <h2>{setValue.title}</h2><br />
-      <p>{setValue.content}</p>
-      </div>
-   
-    </div>
   );
 };
+
+const List =(props) =>{
+  return(
+    <>
+   <div className="todo-container" name="list">  
+   {/* todo박스 생성, 폼의 타이틀과 콘텐트를 보여준다. map돌려 값넣어주기*/}
+   {
+    formValue.map((item) =>
+      item.title={title},
+      item.content={content},
+    )
+   }
+   
+   <h4>리액트 완전정복하기</h4>
+   </div>
+   </>
+  )
+}
 
 export default Form;
