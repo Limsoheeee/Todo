@@ -35,6 +35,7 @@ const Form = () => {
   };
 console.log(formValue)
   return (
+    <div>
     <form className="add-form" onSubmit={onSubmitHandler}>
       <div className="input-group">
         <label className="form-label">제목</label>
@@ -57,7 +58,16 @@ console.log(formValue)
           추가
         </button>
       </div>
-    </form>
+      </form>
+      <br></br>
+
+      <div className="todo-container">  
+      {/* todo박스 생성, 폼의 타이틀과 콘텐트를 보여준다. */}
+      <h2>{setValue.title}</h2><br />
+      <p>{setValue.content}</p>
+      </div>
+   
+    </div>
   );
 };
 

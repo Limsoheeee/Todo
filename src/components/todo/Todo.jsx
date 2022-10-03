@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
 
-const Todo = (props) => {    //워킹박스
- const {children}=props
-   return (
+const Todo = () => {
+  //TOdo
+  
+  return (
     <div>
-      <h3>Working</h3>
-    <div>{children}</div>
-    </div>
+      <h3>Working</h3> // 맵을 돌려서 찍는다. 
+      </div>
   );
 };
 
