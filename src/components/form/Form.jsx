@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = () => {
+const Form = ({ list, setList }) => {
   const mergy ={
     id:0,
     title:"",
     content:"",
     isDone: false,
-  }
-  const [formValue, setValue] = useState([mergy]); //폼밸류 배열처리 온클릭시 처리
+  };
+  // const [formValue, setValue] = useState([mergy]); //폼밸류 배열처리 온클릭시 처리
+  // //폼밸류와 셋밸류가 투두리스트의 리스트가되지만, 여기서 작성안하고 투두리스트에서 작성
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -23,14 +24,14 @@ const Form = () => {
     const inputContent = e.target.value;
     setContent(inputContent);
   };
-
   const onSubmitHandler = (event) => {
     event.preventDefault();
     //버튼추가하면 폼밸류생성
     if (title && content) { //제목과 내용을 둘다 받아야지만 배열에 정보가 들어감
-      setValue([
-        ...formValue,
-        { id: formValue.length + 1, title, content, isDone: false },
+      setList([
+        ...list,
+        {...mergy,id:list.length+1 ,title,content},
+        // { id: formValue.length + 1, title, content, isDone: false },
       ]);
       setTitle("");   //제목과 내용을 추가 누른 후 값을 초기화
       setContent("");
@@ -40,10 +41,7 @@ const Form = () => {
       alert('제목과 내용을 모두 입력해주세요.')
     }
   };
-console.log(formValue)
 
-
-  const [list, setlist] = useState(false); 
 
   return (
    <>
@@ -70,32 +68,11 @@ console.log(formValue)
         </button>
       </div>
       </form>
-      <div>
-        {
-         list == true ? <List/>:null 
-        }
-     </div>
     </>
 
   );
 };
 
-const List =(props) =>{
-  return(
-    <>
-   <div className="todo-container" name="list">  
-   {/* todo박스 생성, 폼의 타이틀과 콘텐트를 보여준다. map돌려 값넣어주기*/}
-   {
-    formValue.map((item) =>
-      item.title={title},
-      item.content={content},
-    )
-   }
-   
-   <h4>리액트 완전정복하기</h4>
-   </div>
-   </>
-  )
-}
+
 
 export default Form;
