@@ -9,10 +9,11 @@ const Form = ({ list, setList }) => {
     isDone: false,
   };
   const [toDo, setTodo] = useState(mergy);
-   console.log(toDo)
+
   const onChangeHandler = (e) => {
     //타이틀,콘텐트  밸류 받아오기
     const { name, value } = e.target;
+
     setTodo({
       ...toDo,
       [name]: value,
@@ -27,15 +28,13 @@ const Form = ({ list, setList }) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     //버튼추가하면 폼밸류생성
-    if (toDo.title === "" || toDo.content === "") 
-    return;
-      setList([
-        ...list,
-        { ...toDo, id: list.length + 1 }
-        // { id: formValue.length + 1, title, content, isDone: false },
-      ]);
-      setTodo(mergy); //제목과 내용을 추가 누른 후 값을 초기화
-    } 
+    if (toDo.title === "" || toDo.content === "") return;
+    setList([
+      ...list,
+      { ...toDo, id: list.length + 1 },
+    ]);
+    setTodo(mergy); //제목과 내용을 추가 누른 후 값을 초기화
+  };
 
   return (
     <>
@@ -48,6 +47,7 @@ const Form = ({ list, setList }) => {
             name="title"
             placeholder="제목"
             onChange={onChangeHandler}
+            value={toDo.title}
           />
           <label className="form-label">내용</label>
           <input
@@ -56,6 +56,7 @@ const Form = ({ list, setList }) => {
             name="content"
             placeholder="내용"
             onChange={onChangeHandler}
+            value={toDo.content}
           />
           <button type="submit" className="add-button">
             추가
