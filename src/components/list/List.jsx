@@ -3,7 +3,6 @@ import Todo from "../todo/Todo";
 import "./style.css";
 
 const List = ({ list, setList }) => {
-  console.log(list)
   return (
     <div>
       <h2>🚨Workig🔥</h2>

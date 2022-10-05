@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./style.css";
 
 const Form = ({ list, setList }) => {
-  let num = 1;
   const mergy = {
-    id: num,
+    id: 0,
     title: "",
     content: "",
     isDone: false,
@@ -12,7 +11,6 @@ const Form = ({ list, setList }) => {
   const [toDo, setTodo] = useState(mergy);
 
   const onChangeHandler = (e) => {
-    //타이틀,콘텐트  밸류 받아오기
     const { name, value } = e.target;
 
     setTodo({
@@ -21,20 +19,13 @@ const Form = ({ list, setList }) => {
     });
   };
 
-  // const onChangeHandlerContent = (e) => {
-  //   //콘텐트 밸류 받아오기
-  //   const inputContent = e.target.value;
-  //   setContent(inputContent);
-  // };
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    //버튼추가하면 폼밸류생성
+
     if (toDo.title === "" || toDo.content === "") return;
-    setList([
-      ...list,
-      { ...toDo, id:num +1}
-    ]);
-    setTodo(mergy); //제목과 내용을 추가 누른 후 값을 초기화
+
+    setList([...list, { ...toDo, id: list[list.length - 1]?.id + 1 || 0}]);
+    setTodo(mergy);
   };
 
   return (

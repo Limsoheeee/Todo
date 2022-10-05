@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 const Todo = ({ id, title, content, isDone, list, setList }) => {
-  console.log(list)
   const checkHandler = () => {
     const result = list.map((item) => {
       if (item.id === id) {
@@ -15,9 +14,7 @@ const Todo = ({ id, title, content, isDone, list, setList }) => {
     setList(result);
   };
 
-  
-
-  const deleteHandler = () => {
+   const deleteHandler = () => {
     const result = list.filter((item) => {
       if (item.id === id) {
         return false;
