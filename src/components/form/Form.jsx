@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./style.css";
 
 const Form = ({ list, setList }) => {
+  let num = 1;
   const mergy = {
-    id: 0,
+    id: num,
     title: "",
     content: "",
     isDone: false,
@@ -31,7 +32,7 @@ const Form = ({ list, setList }) => {
     if (toDo.title === "" || toDo.content === "") return;
     setList([
       ...list,
-      { ...toDo, id:[list.length - 1]?.id+1}
+      { ...toDo, id:num +1}
     ]);
     setTodo(mergy); //제목과 내용을 추가 누른 후 값을 초기화
   };

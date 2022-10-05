@@ -2,17 +2,20 @@ import React from "react";
 import "./style.css";
 
 const Todo = ({ id, title, content, isDone, list, setList }) => {
+  console.log(list)
   const checkHandler = () => {
     const result = list.map((item) => {
       if (item.id === id) {
         return { ...item, isDone: !item.isDone };
       } else {
-        return item;
+        return item
       }
     });
 
     setList(result);
   };
+
+  
 
   const deleteHandler = () => {
     const result = list.filter((item) => {
@@ -34,7 +37,7 @@ const Todo = ({ id, title, content, isDone, list, setList }) => {
         <button className="remove-button" onClick={deleteHandler}>
           삭제하기
         </button>
-        <button className="check-button" onClick={checkHandler}>
+        <button className="check-button" onClick={checkHandler} >
           {isDone ? "취소" : "완료"}
         </button>
       </div>
