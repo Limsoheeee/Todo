@@ -31,7 +31,7 @@ const Form = ({ list, setList }) => {
     if (toDo.title === "" || toDo.content === "") return;
     setList([
       ...list,
-      { ...toDo, id: list.length + 1 },
+      { ...toDo, id:[list.length + 1]?.id+1},
     ]);
     setTodo(mergy); //제목과 내용을 추가 누른 후 값을 초기화
   };
