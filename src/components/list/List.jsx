@@ -2,11 +2,10 @@ import React from "react";
 import Todo from "../todo/Todo";
 import "./style.css";
 
-const List = ({ list, setList}) => {
-
+const List = ({ list, setList }) => {
   return (
     <div>
-      <h2>🔥Working🔥</h2>
+      <h2>🚨Workig🔥</h2>
       <ul className="todo-container">
       {list.map((item) => {
           if (item.isDone === false) {
@@ -16,11 +15,12 @@ const List = ({ list, setList}) => {
           } else {
             return null;
           }
-        })}
+        })};
+        
       </ul>
-      <h2>🍔Done🫶🏻</h2>
+      <h2>✅Done🌈</h2>
       <ul className="todo-container">
-      {list.map((item) => {
+        {list.map((item) => {
           if (item.isDone === true) {
             return (
               <Todo key={item.id} {...item} list={list} setList={setList} />
